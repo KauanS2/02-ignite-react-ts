@@ -7,8 +7,8 @@ export function Countdown() {
   const {
     activeCycle,
     cycleActiveId,
-    markCurrentCycleAsFinished,
     amountSecondsPassed,
+    markCurrentCycleAsFinished,
     setSecondsPassed,
   } = useContext(CyclesContext);
 
@@ -32,7 +32,7 @@ export function Countdown() {
       interval = setInterval(() => {
         const diferenceSeconds = differenceInSeconds(
           new Date(),
-          activeCycle.startData
+          new Date(activeCycle.startData)
         );
         if (diferenceSeconds >= totalSecods) {
           markCurrentCycleAsFinished();
